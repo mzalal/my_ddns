@@ -28,8 +28,8 @@ A simple script that works as a self-hosted Dynamic DNS (DDNS) by checking the c
    source .venv/bin/activate
    ```
 
-   > [!TIP]
-   > Depending on your system, you may need to use `python3` instead of `python`.
+> [!TIP]
+> Depending on your system, you may need to use `python3` instead of `python`.
 
 3. Install dependencies
 
