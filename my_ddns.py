@@ -50,6 +50,7 @@ def exit_for_error(error):
 
 def get_public_ip():
     """Fetch the current public IP address."""
+    print("Fetching current public IP address...")
     try:
         response = requests.get("https://icanhazip.com/")
         response.raise_for_status()
@@ -60,6 +61,7 @@ def get_public_ip():
 
 def get_dns_record_content(client):
     """Retrieve the DNS record content from Cloudflare."""
+    print("Retrieving DNS record content...")
     try:
         response = client.dns.records.get(
             dns_record_id=DNS_RECORD_ID,
@@ -72,6 +74,7 @@ def get_dns_record_content(client):
 
 def update_dns_record_content(client, dns_record_content):
     """Update the DNS record with new content on Cloudflare."""
+    print("Updating DNS record content...")
     try:
         client.dns.records.edit(
             dns_record_id=DNS_RECORD_ID,
@@ -92,10 +95,14 @@ def main():
     dns_record_content = get_dns_record_content(client)
 
     if public_ip != dns_record_content:
+        print("Current IP and DNS record content mismatch")
         update_dns_record_content(client, public_ip)
         logging.info(
             f"DNS record content changed from {dns_record_content} to {public_ip}"
         )
+        print("DONE")
+    else:
+        print("Current IP and DNS record content match, nothing needs to be done.")
 
 
 if __name__ == "__main__":

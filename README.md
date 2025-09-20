@@ -57,8 +57,7 @@ A simple script that works as a self-hosted Dynamic DNS (DDNS) by checking the c
    python my_ddns.py
    ```
 
-   If the script executed successfully, you should seen no output, and your console prompt should appear again after the script is done.
-   Otherwise, you should check the log file (`my_ddns.log`) that is generated in the same directory as the script itself.
+   That should be it. But if any error occurs, you should check the log file (`my_ddns.log`) that is generated in the same directory as the script itself.
 
 ## myDDNS as a system service
 
